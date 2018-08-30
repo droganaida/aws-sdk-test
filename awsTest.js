@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const config = require('./config');
 const path = require('path');
@@ -153,23 +152,26 @@ process.stdout.write(' ====== aws upload ====== ');
 
 // ======= Upload all files in directory ======= //
 
-readDirs(config.rootPath + 'scripts', function (err) {
-    if (err) console.log(' ====== awsUploadFile err ' + err);
-    console.log(' ====== aws upload finished ====== ');
-    process.exit();
-});
+// readDirs(config.rootPath + 'scripts', function (err) {
+//     if (err) console.log(' ====== awsUploadFile err ' + err);
+//     console.log(' ====== aws upload finished ====== ');
+//     process.exit();
+// });
 
 // ======= Upload custom array of files ======= //
 
-// const awsPath = ["scripts/main.js", "styles/style.css", "pics/001.jpg"];
-// awsUploadFileArray(awsPath, function(err) {
-//     if (err) {
-//         console.log(' ====== awsUploadFile err ' + err);
-//         process.exit();
-//     }
-//     cacheInvalidate(awsPath, function (err) {
-//         if (err) console.log(' ====== cacheInvalidate err ' + err);
-//         console.log(' ====== aws upload finished ====== ');
-//         process.exit();
-//     });
-// });
+let awsPath = ["scripts/main.js", "styles/style.css", "pics/001.jpg"];
+awsUploadFileArray(awsPath, function(err) {
+    if (err) {
+        console.log(' ====== awsUploadFile err ' + err);
+        process.exit();
+    }
+    awsPath = awsPath.map(function (fName) {
+        return "/" + fName;
+    });
+    cacheInvalidate(awsPath, function (err) {
+        if (err) console.log(' ====== cacheInvalidate err ' + err);
+        console.log(' ====== aws upload finished ====== ');
+        process.exit();
+    });
+});
