@@ -1,0 +1,16 @@
+{
+  "name": "aws-sdk-test",
+  "version": "1.0.0",
+  "description": "Amazon S3 file upload and cache invalidation",
+  "main": "awsTest.js",
+  "author": {
+    "name": "Aida Drogan #BlondieCode",
+    "email": "aida.drogan.box@gmail.com",
+    "url": "https://www.youtube.com/channel/UCSsg9NLCse2XQCIRgfmJu3Q"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "2.305.0",
+    "walk": "2.3.14"
+  }
+}
