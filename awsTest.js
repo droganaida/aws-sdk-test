@@ -24,6 +24,10 @@ function checkFileType(filelink) {
         case '.bmp':
             return('image/bmp');
             break;
+        case '.jpg':
+        case '.jpeg':    
+            return('image/jpg');
+            break;    
         case '.svg':
             return('image/svg+xml');
             break;
@@ -62,7 +66,6 @@ function checkFileType(filelink) {
             break;
         default:
             return('application/octet-stream');
-            break;
     }
 }
 
